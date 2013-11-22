@@ -2,20 +2,19 @@
 \alias{REC_parameters}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Regional Envelope Curve parameters
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function computes the parameters of regional envelope curve trhough a linea regression. The function uses \code{lm} fucntion for the estimation of parameters.
 }
 \usage{
 REC_parameters(regiondata)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{regiondata}{
-%%     ~~Describe \code{regiondata} here~~
-}
-}
+  \item{regiondata}{A matrix or dataframe with dimensions \code{Nx3} where \code{N} is the number of catchment in the study area and the columns header need to be ordered as follow: 1. Catchment area, 2. Unit mean value, 3. Maximum value. All values must be logartmics  
+ 
+}}
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
@@ -42,26 +41,14 @@ REC_parameters(regiondata)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+###################################
+data(list=c("region_all","ams_stat_all"))
 
-## The function is currently defined as
-function (regiondata) 
-{
-    qmean_area_log <- regiondata[, 7]
-    area_log <- regiondata[, 6]
-    qmax_area_log <- regiondata[, 8]
-    slope <- lm(qmean_area_log ~ area_log)
-    b <- slope$coefficients[2]
-    a_b <- slope$coefficients[1]
-    intercep <- qmax_area_log - b * area_log
-    a <- max(intercep)
-    recpar <- c(a, b, a_b)
-    return(recpar)
-  }
+PREC<-list()
+PREC$input_data$region <- region_all
+PREC$input_data$ams <- ams_stat_all
+PREC$result$statistic <- regional_statistic(PREC$input_data)
+############################# compute linear prameters
+
+PREC$result$REC_par <- REC_parameters(PREC$result$statistic)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

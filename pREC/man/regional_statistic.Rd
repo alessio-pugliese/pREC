@@ -41,8 +41,8 @@ regional_statistic(PREC_input_data)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-data(c(region_all,ams_stat_all))
-
+data(list=c("region_all","ams_stat_all"))
+PREC=list()
 PREC$input_data$region <- region_all
 PREC$input_data$ams <- ams_stat_all
 PREC$result$statistic <- regional_statistic(PREC$input_data)

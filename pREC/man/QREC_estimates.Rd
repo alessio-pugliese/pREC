@@ -1,9 +1,7 @@
 \name{QREC_estimates}
 \alias{QREC_estimates}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-%%  ~~function to do ... ~~
-}
+\title{Regional Envelope Curve estimates}
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
@@ -12,9 +10,7 @@ QREC_estimates(RECres)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{RECres}{
-%%     ~~Describe \code{RECres} here~~
-}
+  \item{RECres}{A list containing the output of both \code{REC_parameters} and \code{regional_statistics} functions. See example below.}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -42,32 +38,19 @@ QREC_estimates(RECres)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+###################################
+data(list=c("region_all","ams_stat_all"))
 
-## The function is currently defined as
-function (RECres) 
-{
-    area <- RECres$statistic[, 1]
-    area_log <- RECres$statistic[, 6]
-    a <- RECres$REC_par[1]
-    b <- RECres$REC_par[2]
-    min_area <- min(area)
-    max_area <- max(area)
-    min_Q_I <- min(a + b * min_area)
-    max_Q_I <- max(a + b * max_area)
-    pI <- c(10^min_Q_I, 10^max_Q_I)
-    q_rec_log <- a + b * area_log
-    q_rec <- 10^(q_rec_log) * area/100
-    qrecs <- cbind(q_rec_log, q_rec)
-    colrec <- c("REC discharge log", "REC discharge")
-    colnames(qrecs) <- colrec
-    RECres$statistic <- cbind(RECres$statistic, qrecs)
-    return(RECres$statistic)
-  }
+PREC<-list()
+PREC$input_data$region <- region_all
+PREC$input_data$ams <- ams_stat_all
+PREC$result$statistic <- regional_statistic(PREC$input_data)
+############################# compute linear prameters
+
+PREC$result$REC_par <- REC_parameters(PREC$result$statistic)
+
+############################# estimates REC
+PREC$result$statistic <- QREC_estimates(PREC$result)
+
+
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -34,11 +34,11 @@ PREC <- list()
 
 ## Loading of input parameters
 
-# site data of the region
+#site data of the region
 #region_all <- read.table(paste(getwd(),"\\region_reg_syn.txt", sep=""), header=T)
 region_all <- read.table("region_reg_syn.txt", header=T)
 
-# ams matrix
+#ams matrix
 #ams_stat_all <- read.table(paste(getwd(),"\\ams_reg_syn_02.txt", sep=""), header=T, row.names=1)
 ams_stat_all <- read.table("ams_reg_syn_02.txt", header=T, row.names=1)
 
@@ -46,32 +46,32 @@ PREC$input_data$region <- region_all
 PREC$input_data$ams <- ams_stat_all
 
 # statistical values for the region
-source("regional_statistic.r")
+source("regional_statistic.R")
 PREC$result$statistic <- regional_statistic(PREC$input_data)
                      
 # homogeneity test
-source("hw_region.r")
+source("hw_region.R")
 PREC$result$hw <- hw_region(PREC$input_data)
 
 ## further calculation only when hw[1] < thresh 
 # distances between sites
-source("coordinates.r")
-PREC$intermed$distmat <- coordinates(PREC$input_data$region)
+source("coordinates.R")
+PREC$intermed$distmat <- coordinates(region_all)
 
 # correlation between sites
-source("correl.r")
-PREC$intermed <- correl(PREC$input_data$ams, PREC$intermed)
+source("correl.R")
+PREC$intermed <- correl(ams_stat_all)
 
 #####
-source("crosscorr_vectors.r")
-PREC$intermed<-crosscorr_vectors(PREC)
+source("crosscorr_vectors.R")
+PREC$intermed <- crosscorr_vectors(PREC)
 
-# optimation of the TS model parameters
-source("ts_model2.r")
-PREC$intermed$ts_par=optim(c(1,1),ts_model2)
+# optimization of the TS model parameters
+source("ts_model2.R")
+PREC$intermed$ts_par<-optim(c(1,1),ts_model2)
 
 # crosscorrelation plot
-source("crossdist.r")
+source("crossdist.R")
 #jpeg(paste("corrfunc.jpg",sep="/"), width=640, height=480)
 #    par(mar=c(4,4,2,1)+2, las=1, mgp=c(4,1,0), cex.main = 2, cex.axis = 1.5, cex.lab = 2)
      #running mean for double-checking
@@ -79,11 +79,11 @@ crossdist(PREC$intermed)
 #dev.off()
 
 # slope and intercept of PREC
-source("REC_parameters.r")
+source("REC_parameters.R")
 PREC$result$REC_par <- REC_parameters(PREC$result$statistic)
 
 # REC discharge estimation
-source("QREC_estimates.r")
+source("QREC_estimates.R")
 PREC$result$statistic <- QREC_estimates(PREC$result)
 
 ## Calculation of REC

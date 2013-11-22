@@ -3,7 +3,7 @@ Type: Package
 Title: Probabilistic Regional Envelope Curve
 Version: 1.0
 Date: 2013-11-15
-Author: Attilio Castellarin, Bjorn Guse
+Author: Attilio Castellarin, Bjorn Guse, Alessio Pugliese
 Maintainer: Alessio Pugliese <alessio.pugliese3@unibo.it>
 Description: This package aims to calculate a probabilistic
 Suggests: nsRFA

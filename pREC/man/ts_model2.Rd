@@ -2,7 +2,7 @@
 \alias{ts_model2}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+TS Optimization model 
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
@@ -13,11 +13,11 @@ ts_model2(lambda)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lambda}{
-%%     ~~Describe \code{lambda} here~~
-}
+  parameters vector for Tasker and Stedinger correlation formula. Need to be of length 2.  
+  }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+
 }
 \value{
 %%  ~Describe the value returned
@@ -42,19 +42,16 @@ ts_model2(lambda)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+######
+data=(list=c("ams_stat_all","region_all"))
+PREC=list()
 
-## The function is currently defined as
-function (lambda) 
-{
-    Model = exp(-lambda[1] * PREC$intermed$distav/(1 + lambda[2] * 
-        PREC$intermed$distav))
-    return(sum((Model - PREC$intermed$corrv)^2))
-  }
+############## Creating matrixes
+PREC$intermed$distmat <- coordinates(region_all)
+PREC$intermed <- correl(ams_stat_all)
+PREC$intermed <- crosscorr_vectors(PREC)
+
+############# Tasker and Stedinger correlation formula parameters optimizations
+
+PREC$intermed$ts_par<-optim(c(1,1),ts_model2)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

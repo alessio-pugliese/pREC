@@ -5,7 +5,7 @@
 Hosking and Wallis homogeneity test
 }
 \description{
-This function computes the homogeneity test for homegeneus regions, developed by Hosking and Wallis. 
+This function computes the homogeneity test for homogeneous regions, developed by Hosking and Wallis. 
 }
 \usage{
 hw_region(inputdata)
@@ -43,8 +43,8 @@ hw_region(inputdata)
 }
 \examples{
 ######
-data(c(ams_stat_all,region_all))
-
+data(list=c("ams_stat_all","region_all"))
+PREC=list()
 PREC$input_data$region <- region_all
 PREC$input_data$ams <- ams_stat_all
 PREC$result$hw <- hw_region(PREC$input_data)

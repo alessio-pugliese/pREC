@@ -1,7 +1,4 @@
-QREC_estimates <-
-function(RECres)
-
-{
+QREC_estimates <- function(RECres){
 
 area <- RECres$statistic[,1]
 area_log <- RECres$statistic[,6]
@@ -22,7 +19,7 @@ q_rec <- 10^(q_rec_log)*area/100
 
 qrecs <- cbind(q_rec_log, q_rec)
 
-colrec<-c("REC discharge log", "REC discharge")
+colrec<-c("REC discharge log","REC discharge")
 
 colnames(qrecs)<-colrec
 

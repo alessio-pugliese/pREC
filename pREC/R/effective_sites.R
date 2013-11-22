@@ -1,7 +1,4 @@
-effective_sites <-
-function(ams_stat, distmat, xall, hw)
-
-{
+effective_sites <- function(ams_stat, distmat, xall, hw){
 
 # number of sites
 amsl <-NCOL(ams_stat)

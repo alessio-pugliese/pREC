@@ -1,16 +1,13 @@
-crosscorr_vectors <-
-function (xsprec)
+crosscorr_vectors <- function (PREC){
 
-{
-
-region_all <- xsprec$input_data$region
+#region_all <- PREC$input_data$region
 
 sites_no <- NROW(region_all)
 
-coordmatrix <- xsprec$intermed$distmat
-correlmatrix <- xsprec$intermed$correlmat
-novermatrix <- xsprec$intermed$novermat
-#tspar <- xsprec$input_data$ts_par
+coordmatrix <- PREC$intermed$distmat
+correlmatrix <- PREC$intermed$correlmat
+novermatrix <- PREC$intermed$novermat
+#tspar <- PREC$input_data$ts_par
 
 # vector with correlation values
 corrv = as.vector(correlmatrix)
@@ -38,13 +35,13 @@ for (iRWM in 1:RWM_length)
   RWM_coord[iRWM]=mean(RWM_matrix[1,RWM_indices])
   RWM_xcorr[iRWM]=sum(RWM_matrix[2,RWM_indices]*RWM_matrix[3,RWM_indices])/sum(RWM_matrix[3,RWM_indices])
 }
+#PREC$intermed$ts_par <- tspar
+PREC$intermed$corrv <- corrv
+PREC$intermed$distav <- distav
+#PREC$intermed$dista <- dista
+#PREC$intermed$xcorr <- RWM_xcorr
+#PREC$intermed$xoord <- RWM_coord
+PREC$intermed$noverv <- noverv   
 
-#xsprec$intermed$ts_par <- tspar
-xsprec$intermed$corrv <- corrv
-xsprec$intermed$distav <- distav
-#xsprec$intermed$dista <- dista
-#xsprec$intermed$xcorr <- xcorr
-xsprec$intermed$noverv <- noverv   
-
-return(xsprec$intermed)
+return(PREC$intermed)
 }

@@ -1,7 +1,4 @@
-PREC_plot <-
-function(region_data, abpar)
-
-{
+PREC_plot <- function(region_data, abpar){
 
 a <- abpar[1]
 b <- abpar[2]
@@ -48,7 +45,7 @@ plot(area, qmean_area,
      ylab="Unit discharge in (L/(s*km^2))",
      cex=1.5,
      col="blue",
-     pch=16)
+     pch=20)
      par(new=T)
 plot(area, qmax_area,
      log="xy",
@@ -57,7 +54,7 @@ plot(area, qmax_area,
      main="",xlab="", ylab="",
      cex=1.5,
      col="red",
-     pch=16)
+     pch=20)
 lines(pA,pR, col='blue', lty=1, lwd=2)
 lines(pA,pI, col='red', lty=1, lwd=2)
 

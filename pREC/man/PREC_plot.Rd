@@ -2,10 +2,10 @@
 \alias{PREC_plot}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Plot of the Regional Envelope Curve
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function allows to plot the regional envelope curve 
 }
 \usage{
 PREC_plot(region_data, abpar)

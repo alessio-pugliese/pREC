@@ -1,9 +1,4 @@
-correl <-
-function (xsdata, interm)
-
-{
-
-ams_stat_all <- xsdata
+correl <- function (ams_stat_all){
 
 sites_no <- NCOL(ams_stat_all)
 
@@ -30,9 +25,8 @@ for (j1 in 1:(sites_no-1)) {
       }
 }
 
-interm$correlmat <- correlmatrix
-interm$novermat <- novermatrix
+PREC$intermed$correlmat<-correlmatrix
+PREC$intermed$novermat<-novermatrix
 
-return(interm)
-
- }
+return(PREC$intermed)
+}

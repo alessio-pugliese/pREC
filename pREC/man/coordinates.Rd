@@ -2,22 +2,20 @@
 \alias{coordinates}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Distances Matrix
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Creates a matrix between mutual catchment distances (in meters). The element \code{d{i,j}} in the matrix represents the distance between catchment \code{i} and \code{j}.
 }
 \usage{
-coordinates(coord_region)
+coordinates(coord_region) 
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
-  \item{coord_region}{
-%%     ~~Describe \code{coord_region} here~~
+  \item{coord_region}{a dataframe or matrix with catchments coordinates of the centroid, dim \code{Nx2}, where \code{N} is the number of stations. 
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -42,27 +40,8 @@ coordinates(coord_region)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+#### Load data
+data(region_all)
 
-## The function is currently defined as
-function (coord_region) 
-{
-    sites_no <- NROW(coord_region)
-    xcoord <- coord_region[, 4]
-    ycoord <- coord_region[, 5]
-    coordmatrix <- matrix(NA, sites_no, sites_no)
-    for (i1 in 1:(sites_no - 1)) {
-        for (i2 in (i1 + 1):sites_no) {
-            coordmatrix[i1, i2] = sqrt((xcoord[i1] - xcoord[i2])^2 + 
-                (ycoord[i1] - ycoord[i2])^2)/1000
-        }
-    }
-    return(coordmatrix)
-  }
+PREC$input_data$region<-coordinates(region_all)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

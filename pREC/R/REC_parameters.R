@@ -1,7 +1,5 @@
-REC_parameters <-
-function(regiondata)
-
-{
+REC_parameters <-function(regiondata){
+  
 qmean_area_log <- regiondata[,7]
 area_log <- regiondata[,6]
 qmax_area_log <- regiondata[,8]
