@@ -49,10 +49,10 @@ PREC$result$statistic <- regional_statistic(PREC$input_data)
 PREC$result$hw <- hw_region(PREC$input_data)
 
 # distances between sites
-PREC$intermed$distmat <- coordinates(PREC$input_data$region)
+PREC$intermed$distmat <- coordinates(region_all)
 
 # correlation between sites
-PREC$intermed <- correl(PREC$input_data$ams, PREC$intermed)
+PREC$intermed <- correl(ams_stat_all)
 
 #####
 PREC$intermed<-crosscorr_vectors(PREC)
