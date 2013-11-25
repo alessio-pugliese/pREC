@@ -55,6 +55,7 @@ plot(area, qmax_area,
      cex=1.5,
      col="red",
      pch=20)
+
 lines(pA,pR, col='blue', lty=1, lwd=2)
 lines(pA,pI, col='red', lty=1, lwd=2)
 
@@ -64,5 +65,4 @@ legend.pos="bottomleft"
 
 legend(legend.pos, lty=c(1,1), lwd=2,col=leg.col, legend=leg.text)
 par(new=F)
-   
 }
