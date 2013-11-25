@@ -13,6 +13,5 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Package
-PackagePath: pREC
 PackageInstallArgs: --no-multiarch
 PackageCheckArgs: --no-examples , --no-manual
