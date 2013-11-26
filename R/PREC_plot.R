@@ -38,20 +38,20 @@ pI <-c(10^min_Q_I, 10^max_Q_I)
 
 plot(area, qmean_area,
      log="xy",
-     xlim=c(xlim_area1, xlim_area),
-     ylim=c(1, ylim_qmax),
+     #xlim=c(xlim_area1, xlim_area),
+     ylim=c(1, max(qmax_area)+100),
      main="Regional Envelope Curve",
      xlab="Catchment size in (km^2)",
      ylab="Unit discharge in (L/(s*km^2))",
      cex=1.5,
      col="blue",
      pch=20)
-     par(new=T)
-plot(area, qmax_area,
+#     par(new=T)
+points(area, qmax_area,
      log="xy",
-     xlim=c(xlim_area1, xlim_area),
-     ylim=c(1, ylim_qmax),
-     main="",xlab="", ylab="",
+     #xlim=c(xlim_area1, xlim_area),
+     #ylim=c(1, ylim_qmax),
+     #main="",xlab="", ylab="",
      cex=1.5,
      col="red",
      pch=20)
