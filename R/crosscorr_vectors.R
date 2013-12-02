@@ -39,8 +39,8 @@ for (iRWM in 1:RWM_length)
 PREC$intermed$corrv <- corrv
 PREC$intermed$distav <- distav
 #PREC$intermed$dista <- dista
-#PREC$intermed$xcorr <- RWM_xcorr
-#PREC$intermed$xoord <- RWM_coord
+PREC$intermed$RWM_xcorr <- RWM_xcorr
+PREC$intermed$RWM_coord <- RWM_coord
 PREC$intermed$noverv <- noverv   
 
 return(PREC$intermed)
