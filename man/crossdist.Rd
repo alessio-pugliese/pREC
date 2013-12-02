@@ -2,7 +2,7 @@
 \alias{crossdist}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Plot Cross-correlation function
+Plot intersite-correlation: empirical coefficients against fitted model 
 }
 \description{
 This function plot coefficient of correlation (blue dots) agaist the spatial distance and the Tasker and Stendiger correlation function (dashed red line), using the parameters obtained with optimization of \code{ts_model2} function.   

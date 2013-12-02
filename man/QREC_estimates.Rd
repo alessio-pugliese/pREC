@@ -1,7 +1,7 @@
 \name{QREC_estimates}
 \alias{QREC_estimates}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Regional Envelope Curve estimates}
+\title{Flood quantiles retrieved from the Envelope Curve}
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }

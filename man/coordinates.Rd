@@ -2,7 +2,7 @@
 \alias{coordinates}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Distances Matrix
+Matrix of distances
 }
 \description{
 Creates a matrix between mutual catchment distances (in meters). The element \code{d{i,j}} in the matrix represents the distance between catchment \code{i} and \code{j}.

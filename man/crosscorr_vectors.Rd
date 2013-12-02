@@ -2,7 +2,7 @@
 \alias{crosscorr_vectors}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Creoss-correlations as vector
+Matrix-to-vector reshaping of correlation matrix
 }
 \description{
 This function arranges the output of function \code{correl} in vectors

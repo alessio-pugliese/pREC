@@ -2,7 +2,7 @@
 \alias{PREC_plot}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Plot of the Regional Envelope Curve
+Plot the Regional Envelope Curve
 }
 \description{
 This function allows to plot the regional envelope curve 

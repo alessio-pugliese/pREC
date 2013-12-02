@@ -2,7 +2,7 @@
 \alias{effective_sites}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Number of statistical effective sites 
+Estimate the effective sample-years of data (equivalent number of independent data) 
 }
 \description{
 This function provides a statistical computation of the number of statistical effective sample years of data.  

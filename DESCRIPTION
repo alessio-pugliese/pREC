@@ -2,9 +2,9 @@ Package: pREC
 Type: Package
 Title: Probabilistic Regional Envelope Curve
 Version: 1.0
-Date: 2013-11-15
+Date: 2013-12-11
 Author: Attilio Castellarin, Bjorn Guse, Alessio Pugliese
 Maintainer: Alessio Pugliese <alessio.pugliese3@unibo.it>
-Description: This package aims to calculate a probabilistic
+Description: This package implements the approach descibed in Castellarin (WRR, 2007) for constructing probabilistic regional envelope curves of flood flows
 Suggests: nsRFA
 License: GPLv3

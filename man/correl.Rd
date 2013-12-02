@@ -2,7 +2,7 @@
 \alias{correl}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Correlation Matrix
+Matrix of empirical correlation coefficients
 }
 \description{
 Compute the correlation matrix between AMS values discarding eventually \code{NA} values (i.e. missing records). This function makes use of \code{cor} as its main function.   
