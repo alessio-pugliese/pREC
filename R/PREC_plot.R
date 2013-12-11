@@ -36,33 +36,36 @@ max_Q_I <- max(a+b*max_area)
 
 pI <-c(10^min_Q_I, 10^max_Q_I)
 
-plot(area, qmean_area,
+# cubic meters per second per square km are used only for the plots 
+# L per s per square km are used every where else
+plot(area, qmean_area/1000,
      log="xy",
      #xlim=c(xlim_area1, xlim_area),
-     ylim=c(1, max(qmax_area)+100),
-     main="Regional Envelope Curve",
-     xlab="Catchment size in (km^2)",
-     ylab="Unit discharge in (L/(s*km^2))",
-     cex=1.5,
+     ylim=c(1, max(qmax_area)+100)/1000,
+     lty=2,
+     main="Regional Envelope Curve (REC)",
+     xlab=expression("Drainage Area"~~bgroup("(",km^2,")")),
+     ylab=expression("Unit Discharge"~~bgroup("(",m^3/s/km^{2},")")),
+     cex=1,
      col="blue",
-     pch=20)
+     pch=21)
 #     par(new=T)
-points(area, qmax_area,
-     log="xy",
+points(area, qmax_area/1000,
      #xlim=c(xlim_area1, xlim_area),
      #ylim=c(1, ylim_qmax),
      #main="",xlab="", ylab="",
-     cex=1.5,
+     cex=1,
      col="red",
-     pch=20)
+     pch=21,
+     lwd=2)
 
-lines(pA,pR, col='blue', lty=1, lwd=2)
-lines(pA,pI, col='red', lty=1, lwd=2)
+lines(pA,pR/1000, col='blue', lty=2, lwd=1)
+lines(pA,pI/1000, col='red', lty=1, lwd=2)
 
-leg.col = c("blue", "red")
-leg.text = c("Regression", "REC")
+leg.col = c("red","blue")
+leg.text = c("REC (Record flood)","Regression (Index-flood)")
 legend.pos="bottomleft"
 
-legend(legend.pos, lty=c(1,1), lwd=2,col=leg.col, legend=leg.text)
+legend(legend.pos, lty=c(1,2), lwd=c(2,1),col=leg.col, legend=leg.text)
 par(new=F)
 }

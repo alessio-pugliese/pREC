@@ -27,13 +27,13 @@ corrfunc = exp(-xall[1]*distx/(1+xall[2]*distx))
 
 # plot distance vs correlation coefficient
 #running mean for double-checking
-plot(distav, corrv, pch=20, lty=1, lwd=3, col="blue",
-        xlim=c(0,max(distav)),ylim=c(-1,1),
+plot(distav, corrv, pch=21, lty=1, col="blue",
+        xlim=c(0,max(distav)),ylim=c(0,1),
         main = "Cross-correlation function",
         xlab= "Distance [km]",ylab = "Correlation coefficient [-]",
         xaxs="i", yaxs="i", cex=0.7)
-        lines(RWM_coord, RWM_xcorr, lty=1, lwd=3, col="gray",xaxs="i", yaxs="i", cex=0.8)
-        lines(distx, corrfunc, lty=2, lwd=2, col="red",xaxs="i", yaxs="i", cex=0.8)
+        lines(RWM_coord, RWM_xcorr, lty=1, lwd=10, col="grey",xaxs="i", yaxs="i", cex=0.8)
+        lines(distx, corrfunc, lty=2, lwd=4, col="red",xaxs="i", yaxs="i", cex=0.8)
         #points(distav, corrv, pch=16, cex=0.5,
         #ylim = c(corr_min,1),
         #col= "blue")
